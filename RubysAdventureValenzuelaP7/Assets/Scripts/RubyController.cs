@@ -14,7 +14,8 @@ public class RubyController : MonoBehaviour
 
     //I frames
     bool isInvincible;
-    float InvincibleTimer;
+    float invincibleTimer;
+    public float timeInvincible = 2.0f;
 
     // colission
     Rigidbody2D rigidbody2d;
@@ -42,8 +43,8 @@ public class RubyController : MonoBehaviour
 
         if (isInvincible)
         {
-            InvincibleTimer -= Time.deltaTime;
-            if (InvincibleTimer < 0)
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
                 isInvincible = false;
         }
     }
@@ -61,16 +62,17 @@ public class RubyController : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
-    }
-    {
-    if(amount< 0)
+
+
+        if (amount < 0)
         {
-        if (isInvincible)
-        return;
-        
-        isInvincible = true;
-        invincibleTimer timeInvincible;
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
         }
-currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-Debug.Log(currentHealth + "/" + maxHealth):
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
+    }
 }

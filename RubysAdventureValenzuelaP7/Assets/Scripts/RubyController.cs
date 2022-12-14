@@ -24,6 +24,9 @@ public class RubyController : MonoBehaviour
     float horizontal;
     float vertical;
 
+    //projectile
+    public GameObject projectilePrefab;
+
     //Animation
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
@@ -93,5 +96,15 @@ public class RubyController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, GetComponent<Rigidbody2D>().position + Vector2.up * 0.5f, Quaternion.identity);
+
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(lookDirection, 300);
+
+        animator.SetTrigger("Launch");
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4551649851996012171}
   - component: {fileID: 5935519429784312795}
   - component: {fileID: 2715879377823170476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3cdbde4c132444297e983908c606b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  maxHealth: 5
+  currentHealth: 0
+  timeInvincible: 2
+  projectilePrefab: {fileID: 0}
 --- !u!50 &5935519429784312795
 Rigidbody2D:
   serializedVersion: 4
@@ -158,7 +163,7 @@ GameObject:
   - component: {fileID: 4551649852593144010}
   - component: {fileID: 4551649852593144011}
   - component: {fileID: 4551649852593144004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

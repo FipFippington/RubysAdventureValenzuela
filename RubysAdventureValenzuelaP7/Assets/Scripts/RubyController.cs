@@ -8,7 +8,8 @@ public class RubyController : MonoBehaviour
     public float speed = 3.0f;
 
     // Health Values
-    public int maxHealth = 5;
+    public int maxHealth = 10;
+
     public int Health { get { return currentHealth; } }
     public int currentHealth;
 
@@ -68,6 +69,11 @@ public class RubyController : MonoBehaviour
             invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
                 isInvincible = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
         }
     }
 
